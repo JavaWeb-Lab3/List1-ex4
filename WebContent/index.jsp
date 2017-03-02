@@ -9,7 +9,7 @@
 <body>
 <body>
 	<h1>Qual o seu peso ideal?</h1>
-	<form method="post" action="index.jsp">
+	<form method="post" action="calculate.jsp">
 	<label>Altura</label>
 	<input name="person_height" type="text"/><br/>
 	<label>Peso</label>
@@ -17,32 +17,6 @@
 	<input name="calculate_ideal_weight" type="submit" value="Enviar"/>
 	</form>
 	<br/>
-	<% 
-		String personHeightHTML = request.getParameter("person_height");
-		String personWeightHTML = request.getParameter("person_weight");
-		
-		try{
-			float personHeight = Float.parseFloat(personHeightHTML);
-			float personWeight = Float.parseFloat(personWeightHTML);
-			double idealWeight = ((personHeight-1.1)*(100));
-			out.println("Peso ideal: " + idealWeight + "<br/>" );
-			
-			if(personWeight == idealWeight){
-				out.println("Voce esta no peso ideal");
-			} else {
-				if(personWeight < idealWeight){
-					out.println("Voce esta magro");
-				} else {
-					if(personWeight > idealWeight){
-						out.println("Voce esta gordo");
-					}
-				}
-			}
-		} catch(NumberFormatException nfe){
-			out.println("Um dos valores informados não correspondem ao esperado.");
-		}
-		
-	%>
 </body>
 </body>
 </html>
